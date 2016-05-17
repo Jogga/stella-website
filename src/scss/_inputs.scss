@@ -1,0 +1,19 @@
+input {
+  padding: 12px 24px;
+  border: 1px solid $stella-color-text;
+  border-radius: 50px;
+  
+  font-family: 'Karla', sans-serif;
+  font-size: 1.0em;
+
+  &:hover, &:focus {
+    outline: none;
+    border: 1px solid $stella-color-primary-dark;   
+  }
+}
+
+fieldset {
+  padding: 0px;
+  border: 0px;
+  margin: 10px 0;
+}

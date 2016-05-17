@@ -9,11 +9,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 // CRUD
-/*
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+
+app.get('/contact', (req, res) => {
+  res.send('reach out to us by mail: contact *at* stellabot *dot* com');
 });
-*/
+
 app.post('/signup', (req, res) => {
   db.collection('emails').save(req.body, (err, result) => {
     if(err) return console.log(err);
