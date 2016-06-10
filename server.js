@@ -1,12 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
+const cookieParser = require('cookie-parser');
 const config = require('./config.js');
+const ab = require('express-ab');
+const path = require('path');
 const app = express();
 var db;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
+app.use(cookieParser());
 
 // CRUD
 
@@ -20,6 +24,18 @@ app.post('/signup', (req, res) => {
     console.log('saved to database');
     res.send('thank you for signing up!');
   });
+});
+
+// A/B Testing
+
+var myPageTest = ab.test('stella-landingpage-test');
+
+app.get('/', myPageTest(), function (req, res) {
+    res.sendFile(path.join(__dirname + config.multivariant.a.landingpage));
+});
+
+app.get('/', myPageTest(), function (req, res) {
+    res.sendFile(path.join(__dirname + config.multivariant.b.landingpage));
 });
 
 // Start Server
@@ -37,14 +53,13 @@ MongoClient.connect(
 
 function mongoUrlHelper() {
   url = [
-    'mongodb://', 
-    config.mongodb.username, 
-    ':', 
-    config.mongodb.password, 
+    'mongodb://',
+    config.mongodb.username,
+    ':',
+    config.mongodb.password,
     '@',
-    config.mongodb.url, 
+    config.mongodb.url,
     config.mongodb.database
   ].join('');
   return url;
 }
-
