@@ -11,7 +11,7 @@ app.use(express.static('public'));
 // CRUD
 
 app.get('/contact', (req, res) => {
-  res.send('reach out to us by mail: contact *at* stellabot *dot* com');
+  res.send('reach out to us by mail: stella *at* stellabot *dot* com');
 });
 
 app.post('/signup', (req, res) => {

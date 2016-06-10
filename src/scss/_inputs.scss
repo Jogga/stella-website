@@ -1,6 +1,6 @@
 input {
   padding: 12px 24px;
-  border: 1px solid $stella-color-text;
+  border: 2px solid $stella-color-text;
   border-radius: 50px;
   
   font-family: 'Karla', sans-serif;
@@ -8,7 +8,7 @@ input {
 
   &:hover, &:focus {
     outline: none;
-    border: 1px solid $stella-color-primary-dark;   
+    border: 2px solid $stella-color-primary-dark;   
   }
 }
 
