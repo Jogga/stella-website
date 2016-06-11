@@ -2,13 +2,13 @@ input {
   padding: 12px 24px;
   border: 2px solid $stella-color-text;
   border-radius: 50px;
-  
+
   font-family: 'Karla', sans-serif;
   font-size: 1.0em;
 
   &:hover, &:focus {
     outline: none;
-    border: 2px solid $stella-color-primary-dark;   
+    border: 2px solid $stella-color-primary-dark;
   }
 }
 
@@ -16,4 +16,44 @@ fieldset {
   padding: 0px;
   border: 0px;
   margin: 10px 0;
+}
+
+.stella-validated-field {
+  position: relative;
+
+  .hidden {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+}
+
+.stella-validated-field-message-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.stella-validated-field-message {
+  display: inline-block;
+  opacity: 0.8;
+  padding: 10px 30px;
+  margin-top: 2px;
+  border-radius: 50px;
+
+  transition-property: opacity, transform;
+  transition-duration: 0.2s;
+  transform: scale(1);
+}
+
+.stella-validated-field-message-alert {
+  @extend .stella-validated-field-message;
+  background-color: #fcca49;
+  color: #8c570d;
+}
+
+.stella-validated-field-message-success {
+  @extend .stella-validated-field-message;
+  background-color: #b2d5fb;
+  color: #286298;
 }

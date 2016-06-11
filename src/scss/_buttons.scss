@@ -1,7 +1,7 @@
 button {
   padding: 15px 36px;
   border: 0px;
-  
+
   border-radius: 50px;
   color: white;
   background-color: $stella-color-text;
@@ -14,5 +14,8 @@ button {
 
   &:hover {
     background-color: $stella-color-primary-dark;
+  }
+  &:focus {
+    outline: 0px;
   }
 }

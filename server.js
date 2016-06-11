@@ -8,8 +8,10 @@ const path = require('path');
 const app = express();
 var db;
 
-app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
+app.use(bodyParser.json({
+  extended: true
+}));
 app.use(cookieParser());
 
 // CRUD
@@ -19,24 +21,27 @@ app.get('/contact', (req, res) => {
 });
 
 app.post('/signup', (req, res) => {
-  db.collection('emails').save(req.body, (err, result) => {
-    if(err) return console.log(err);
-    console.log('saved to database');
-    res.send('thank you for signing up!');
-  });
+  console.log(req.body);
+  res.send('lol');
+  // res.send('lol');
+  // db.collection('emails').save(req.body, (err, result) => {
+  //   if(err) return console.log(err);
+  //   console.log('saved to database');
+  //   res.send('thank you for signing up!');
+  // });
 });
 
 // A/B Testing
 
-// var myPageTest = ab.test('stella-landingpage-test');
+var myPageTest = ab.test('stella-landingpage-test');
 //
-// app.get('/', myPageTest(), function (req, res) {
-//     res.sendFile(path.join(__dirname + config.multivariant.a.landingpage));
-// });
+app.get('/', myPageTest(), function (req, res) {
+  res.sendFile(path.join(__dirname + config.multivariant.a.landingpage));
+});
 //
-// app.get('/', myPageTest(), function (req, res) {
-//     res.sendFile(path.join(__dirname + config.multivariant.b.landingpage));
-// });
+app.get('/', myPageTest(), function (req, res) {
+  res.sendFile(path.join(__dirname + config.multivariant.b.landingpage));
+});
 
 // Start Server
 
