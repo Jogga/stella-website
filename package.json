@@ -18,6 +18,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.13.4",
     "express-ab": "^0.7.0",
+    "gulp-concat": "^2.6.0",
     "mongodb": "^2.1.18"
   },
   "devDependencies": {
