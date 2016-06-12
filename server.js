@@ -40,8 +40,8 @@ MongoClient.connect(
   mongoUrlHelper(), (err, database) => {
   if(err) return console.log(err);
   db = database;
-  app.listen(8001, () => {
-    console.log('listening on 8001');
+  app.listen(8000, () => {
+    console.log('listening on 8000');
   });
 });
 
