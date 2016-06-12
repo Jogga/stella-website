@@ -8,6 +8,7 @@ var intervals = [];
 // Setup
 
 ctaButton.onclick = onClickCtaButton;
+emailFormField.onclick = onClickEmailInput;
 if (emailForm.addEventListener) {
     emailForm.addEventListener("submit", function(evt) {
         evt.preventDefault();
@@ -29,6 +30,11 @@ function onClickCtaButton(){
 	} else {
 		showMessage(emailValidationAlert);
 	}
+}
+
+function onClickEmailInput() {
+	console.log("onClickEmailInput");
+	ga('send', 'event', 'Forms', 'focus', 'Lead collection');
 }
 
 function onEmailFormSubmitted() {

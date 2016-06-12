@@ -21,14 +21,11 @@ app.get('/contact', (req, res) => {
 });
 
 app.post('/signup', (req, res) => {
-  console.log(req.body);
-  res.send('lol');
-  // res.send('lol');
-  // db.collection('emails').save(req.body, (err, result) => {
-  //   if(err) return console.log(err);
-  //   console.log('saved to database');
-  //   res.send('thank you for signing up!');
-  // });
+  db.collection('emails').save(req.body, (err, result) => {
+    if(err) return console.log(err);
+    console.log('saved to database');
+    res.end();
+  });
 });
 
 // A/B Testing
