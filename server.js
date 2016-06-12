@@ -34,26 +34,14 @@ app.post('/signup', (req, res) => {
   }
 });
 
-// A/B Testing
-
-// var myPageTest = ab.test('stella-landingpage-test');
-// //
-// app.get('/', myPageTest(), function (req, res) {
-//   res.sendFile(path.join(__dirname + config.multivariant.a.landingpage));
-// });
-// //
-// app.get('/', myPageTest(), function (req, res) {
-//   res.sendFile(path.join(__dirname + config.multivariant.b.landingpage));
-// });
-
 // Start Server
 
 MongoClient.connect(
   mongoUrlHelper(), (err, database) => {
   if(err) return console.log(err);
   db = database;
-  app.listen(8000, () => {
-    console.log('listening on 8000');
+  app.listen(8001, () => {
+    console.log('listening on 8001');
   });
 });
 

@@ -20,11 +20,7 @@ else {
     });
 }
 
-
-
 function onClickCtaButton(){
-  console.log("button clicked");
-
 	if(validateEmail(emailFormField.value)) {
 		asyncPost(emailForm, onEmailFormSubmitted);
 	} else {
@@ -42,14 +38,6 @@ function onEmailFormSubmitted() {
 	showMessage(emailValidationSuccess);
 }
 
-/**
- * Takes a form node and sends it over AJAX.
- * Based on: http://stackoverflow.com/a/26556347/3366370
- *
- * @param {HTMLFormElement} form - Form node to send
- * @param {function} callback - Function to handle onload.
- *                              this variable will be bound correctly.
- */
 function asyncPost (form, callback) {
   var url = form.action;
   var xhr = new XMLHttpRequest();

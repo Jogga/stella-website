@@ -19,14 +19,25 @@
   <main>
     <section>
       <img src="img/stella-logo-bot.png" alt="stella logo" class="stella-logo" />
-      <h1>Scheduling meetings should be easy.</h2>
-      <h2>I’m Stella, a <a href="https://slack.com/">slack</a> bot that makes it painless for you to meet no matter where in the world you are!</h2>
+      <h1>I’m Stella, a <a href="https://slack.com/">slack</a> bot that helps you schedule meetings.</h1>
     </section>
     <section>
       <h2>Be the first to invite me to your team when I’m ready:</h2>
       <form id="stella-email-form" action="/signup">
-        <input id="stella-email-form-field" type="email" placeholder="email" name="email" required>
-        <button type="submit" id="stella-cta-button">Submit</button>
+        <div class="stella-validated-field">
+          <input id="stella-email-form-field" type="text" placeholder="email" name="email">
+          <button id="stella-cta-button">Submit</button>
+          <div class="stella-validated-field-message-container">
+            <p id="stella-email-form-validation-alert" class="stella-validated-field-message-alert hidden">
+              Please submit a valid email.
+            </p>
+          </div>
+          <div class="stella-validated-field-message-container">
+            <p id="stella-email-form-validation-success" class="stella-validated-field-message-success hidden">
+              Thanks! We added you to our list.
+            </p>
+          </div>
+        </div>
       </form>
       <p class="stella-affirm">We promise never to share your data with anyone.</p>
     </section>
