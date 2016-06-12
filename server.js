@@ -5,9 +5,14 @@ const cookieParser = require('cookie-parser');
 const config = require('./config.js');
 const ab = require('express-ab');
 const path = require('path');
-const app = express();
+const expstate = require('express-state');
+const exphbs = require('express-handlebars');
+var app = express();
 var db;
 
+expstate.extend(app);
+app.engine('hbs', exphbs());
+app.set('view engine', 'hbs');
 app.use(express.static('public'));
 app.use(bodyParser.json({
   extended: true
@@ -32,6 +37,22 @@ app.post('/signup', (req, res) => {
   } else {
     res.send('email could not be saved');
   }
+});
+
+// A/B Testing
+
+var myPageTest = ab.test('stella-landingpage-test', { id: config.multivariant.experimentId });
+
+app.expose({experiment_id: config.multivariant.experimentId});
+
+app.get('/', myPageTest(), function (req, res) {
+  res.expose({experiment_variant: res.locals.ab.variantId});
+  res.render(path.join(__dirname + config.multivariant.a.landingpage));
+});
+
+app.get('/', myPageTest(), function (req, res) {
+  res.expose({experiment_variant: res.locals.ab.variantId});
+  res.render(path.join(__dirname + config.multivariant.b.landingpage));
 });
 
 // Start Server

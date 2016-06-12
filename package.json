@@ -18,6 +18,8 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.13.4",
     "express-ab": "^0.7.0",
+    "express-handlebars": "^3.0.0",
+    "express-state": "^1.4.0",
     "gulp-concat": "^2.6.0",
     "mongodb": "^2.1.18"
   },

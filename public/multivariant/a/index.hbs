@@ -4,15 +4,20 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stella</title>
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <!-- Google Analytics -->
   <script>
+    {{{ state }}}
+  </script>
+  <script>
   window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('set', 'expId', experiment_id);
+  ga('set', 'expVar', experiment_variant);
   ga('create', 'UA-79174129-1', 'auto');
   ga('send', 'pageview');
   </script>
   <script async src='https://www.google-analytics.com/analytics.js'></script>
-  <script async type="text/javascript" src="../../js/script.js"></script>
+  <script async type="text/javascript" src="js/script.js"></script>
   <!-- End Google Analytics -->
 </head>
 <body class="stella-page-landing">
@@ -23,7 +28,7 @@
     </section>
     <section>
       <h2>Be the first to invite me to your team when I’m ready:</h2>
-      <form id="stella-email-form" action="../../signup">
+      <form id="stella-email-form" action="/signup">
         <div class="stella-validated-field">
           <input id="stella-email-form-field" type="text" placeholder="email" name="email">
           <button id="stella-cta-button">Submit</button>
