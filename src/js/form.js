@@ -33,7 +33,7 @@ function onClickCtaButton(){
 }
 
 function onClickEmailInput() {
-	ga('send', 'event', 'Forms', 'focus', 'Lead collection');
+	// ga('send', 'event', 'Forms', 'focus', 'Lead collection');
 }
 
 function onEmailFormSubmitted() {

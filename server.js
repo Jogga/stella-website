@@ -21,11 +21,17 @@ app.get('/contact', (req, res) => {
 });
 
 app.post('/signup', (req, res) => {
-  db.collection('emails').save(req.body, (err, result) => {
-    if(err) return console.log(err);
-    console.log('saved to database');
-    res.end();
-  });
+  if(validateEmail(req.body.email)) {
+    var dbEntry = {};
+    dbEntry.email = req.body.email;
+    db.collection('emails').save(req.body, (err, result) => {
+      if(err) return console.log(err);
+      console.log('saved to database');
+      res.end();
+    });
+  } else {
+    res.send('email could not be saved');
+  }
 });
 
 // A/B Testing
@@ -64,4 +70,9 @@ function mongoUrlHelper() {
     config.mongodb.database
   ].join('');
   return url;
+}
+
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
 }
