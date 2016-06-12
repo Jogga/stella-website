@@ -36,15 +36,15 @@ app.post('/signup', (req, res) => {
 
 // A/B Testing
 
-var myPageTest = ab.test('stella-landingpage-test');
-//
-app.get('/', myPageTest(), function (req, res) {
-  res.sendFile(path.join(__dirname + config.multivariant.a.landingpage));
-});
-//
-app.get('/', myPageTest(), function (req, res) {
-  res.sendFile(path.join(__dirname + config.multivariant.b.landingpage));
-});
+// var myPageTest = ab.test('stella-landingpage-test');
+// //
+// app.get('/', myPageTest(), function (req, res) {
+//   res.sendFile(path.join(__dirname + config.multivariant.a.landingpage));
+// });
+// //
+// app.get('/', myPageTest(), function (req, res) {
+//   res.sendFile(path.join(__dirname + config.multivariant.b.landingpage));
+// });
 
 // Start Server
 

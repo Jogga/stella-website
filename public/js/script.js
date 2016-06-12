@@ -33,11 +33,11 @@ function onClickCtaButton(){
 }
 
 function onClickEmailInput() {
-	// ga('send', 'event', 'Forms', 'focus', 'Lead collection');
+	ga('send', 'event', 'Forms', 'focus', 'Lead collection');
 }
 
 function onEmailFormSubmitted() {
-  // ga('send', 'event', 'Forms', 'submit', 'Lead collection');
+  ga('send', 'event', 'Forms', 'submit', 'Lead collection');
 	emailFormField.value = '';
 	showMessage(emailValidationSuccess);
 }
