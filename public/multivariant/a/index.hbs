@@ -11,7 +11,8 @@
   </script>
   <script>
   window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-  ga('create', 'UA-79174129-1', 'auto');
+  window.ga_debug = {trace: true};
+  ga('create', 'UA-79174129-1');
   ga('set', 'expId', experiment_id);
   ga('set', 'expVar', experiment_variant);
   ga('send', 'pageview');
